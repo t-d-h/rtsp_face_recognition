@@ -11,4 +11,8 @@ sudo docker build -t $IMAGE . && sudo docker push $IMAGE
 echo $IMAGE
 
 
+ssh hoantd-k0 kubectl rollout restart daemonset -n products face-identification
 
+sleep 10
+
+ssh hoantd-k0 kubectl get pods -n products -o wide
